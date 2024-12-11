@@ -151,7 +151,27 @@ clear
 
 
 
-# show time
+
+# Initialize duration
+duration=0
+
+start_timer=$(date +%s.%N)
+
+
+if useful_command here "${@}"; then
+    #start time if condition succesful
+    end_time=$(date +%s.%N)
+    duration=$(echo "$end_time - $start_timer" | bc)
+else
+    echo "Error : task failed."
+    duration=0
+fi
+
+#print Treatment time
+printf "Treatment time: %.1fsec\n" "$duration"
+
+
+
 # graph : gnuplot
 # create file station list
 # create avl in C
