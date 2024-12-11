@@ -158,10 +158,10 @@ duration=0
 start_timer=$(date +%s.%N)
 
 
-if useful_command here "${@}"; then
+if commande à mettre ici; then
     #start time if condition succesful
     end_time=$(date +%s.%N)
-    duration=$(echo "$end_time - $start_timer" | bc)
+    duration=$(echo "$end_time - $start_timer" | bc) #bc convert nano to seconds 
 else
     echo "Error : task failed."
     duration=0
